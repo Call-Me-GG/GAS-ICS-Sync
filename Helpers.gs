@@ -310,7 +310,9 @@ function filterResults(events){
         else{
           let regexString = `${(["equals", "begins with"].includes(filter.comparison)) ? "^" : ""}(${filter.criterias.join("|")})${(filter.comparison == "equals") ? "$" : ""}`;
           let regex = new RegExp(regexString);
-          let result = regex.test(event.getFirstPropertyValue(filter.parameter).toString()) ^ (filter.type == "exclude");
+          let propValue = event.getFirstPropertyValue(filter.parameter);
+          let propString = propValue ? propValue.toString() : "";
+          let result = regex.test(propString) ^ (filter.type == "exclude");
           if (!result && event.hasProperty('recurrence-id')){
             let id = event.getFirstPropertyValue('uid');
             Logger.log(`Filtering recurrence instance of ${id} at ${event.getFirstPropertyValue('dtstart').toICALString()}`);
@@ -755,7 +757,9 @@ function createEvent(event, calendarTz){
   }
 
   if (event.hasProperty('description'))
-    newEvent.description = icalEvent.description;
+    newEvent.description = icalEvent.description + "\n\n" + syncTag;
+  else
+    newEvent.description = syncTag;
 
   if (event.hasProperty('location'))
     newEvent.location = icalEvent.location;
