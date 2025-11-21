@@ -26,8 +26,6 @@ var sourceCalendars = [                // The ics/ical urls that you want to get
                                        // For instance: ["https://p24-calendars.icloud.com/holidays/us_en.ics", "US Holidays"]
                                        // Or with colors following mapping https://developers.google.com/apps-script/reference/calendar/event-color,
                                        // for instance: ["https://p24-calendars.icloud.com/holidays/us_en.ics", "US Holidays", "11"]
-  ["https://calendar.google.com/calendar/ical/nessuno.no.luogo%40gmail.com/private-517bd61b53c27d4aaa7835cca58a5415/basic.ics", "Luigi Serra - Work", "8"],
-  ["https://calendar.google.com/calendar/ical/luigi%40luigiserra.info/private-80f441f0661ea6206baeee3b717f1b9c/basic.ics", "GiGi - Personale", "8"],
   //["icsUrl3", "targetCalendar1"]
 
 ];
